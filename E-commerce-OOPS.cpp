@@ -9,7 +9,7 @@ class Product
  	 	int pid,qty;  	 	
 		string pname,category,user_name,user_email,phone_num,city,state,address;  	 	
 		float price,tot_amount;  	
-		public: 
+	public: 
  	 	void get_user_detail();  	 	
 		virtual void get_product_detail();  	 	
 		virtual void display_product_detail();  	 	
@@ -115,11 +115,11 @@ void modify(Grocery G[], int id, int n)
 class Stationary:public Product 
 { 
  	public: 
-  	void get_product_detail();   
-	void display_product_detail();   
-	friend void search_by_id(Stationary s[], int id, int n);   
-	friend void search_by_category(Stationary s[], string category, int n); 
-  	friend void modify(Stationary s[], int pid, int n);   void amount(); 
+	  	void get_product_detail();   
+		void display_product_detail();   
+		friend void search_by_id(Stationary s[], int id, int n);   
+		friend void search_by_category(Stationary s[], string category, int n); 
+	  	friend void modify(Stationary s[], int pid, int n);   void amount(); 
 }; 
 void Stationary::get_product_detail() 
 { 
@@ -173,17 +173,17 @@ for(int i=0;i<n;i++)
 } 
 void modify(Stationary S[], int id, int n) 
 { 
-	 	for(int i=0;i<n;i++) {  	 	
-			if(S[i].pid==id) 
-	 	 	{ 
-	 	 	 	S[i].get_product_detail(); 
-	 	 	 	break; 
-	 	 	} 
+	for(int i=0;i<n;i++) {  	 	
+		if(S[i].pid==id) 
+	 	{ 
+	 	 	S[i].get_product_detail(); 
+	 	 	break; 
 	 	} 
+	} 
 } 
 class Electronics : public Product 
 { 
-	 	public: 
+	 public: 
  	 	void get_product_detail();  	 	
 		void display_product_detail(); 
  	 	friend void search_by_id(Electronics E[], int pid, int n);  	 	
@@ -215,18 +215,18 @@ void Electronics::display_product_detail()
 } 
 void Electronics::total_amount() 
 { 
-	 	tot_amount=price*qty; 
+	 tot_amount=price*qty; 
 } 
 void search_by_id(Electronics E[], int id, int n) 
 { 
-	 	for(int i=0;i<n;i++) 
-	 	{ 
-	 	 	if(E[i].pid==id) 
-	 	 	{ 
- 	 	 	E[i].display_product_detail();  	 	 	
-			break; 
-	 	 	} 
+	 for(int i=0;i<n;i++) 
+	 { 
+	  	if(E[i].pid==id) 
+	  	{ 
+ 	  	E[i].display_product_detail();  	 	 	
+		break; 
 	 	} 
+	} 
 } 
 void search_by_category(Electronics E[], string category, int n) 
 { 
@@ -240,13 +240,14 @@ void search_by_category(Electronics E[], string category, int n)
 } 
 void modify(Electronics E[], int id, int n) 
 { 
-	 	for(int i=0;i<n;i++) 
- 	{  	 	if(E[i].pid==id) 
-	 	 	{ 
-	 	 	 	E[i].get_product_detail(); 
-	 	 	 	break; 
-	 	 	} 
+	for(int i=0;i<n;i++) 
+ 	{  	
+		if(E[i].pid==id) 
+	 	{ 
+	 		E[i].get_product_detail(); 
+	 	 	break; 
 	 	} 
+	} 
 } 
 int main() 
 { 
@@ -255,24 +256,27 @@ int main()
     Electronics e[3]; 
  
     g[0].get_user_detail();     
-	for(int i = 0 ; i < 3; i++) 
+    for(int i = 0 ; i < 3; i++) 
     { 
-        //g[i].get_user_detail();         g[i].get_product_detail(); 
+        //g[i].get_user_detail();         
+	g[i].get_product_detail(); 
     } 
     s[0].get_user_detail();     
-	for(int i = 0 ; i < 3; i++) 
+    for(int i = 0 ; i < 3; i++) 
     { 
-        //s[i].get_user_detail();         s[i].get_product_detail();     } 
+        //s[i].get_user_detail();        
+	s[i].get_product_detail();     } 
     e[0].get_user_detail();     
-	for(int i = 0 ; i < 3; i++) 
+    for(int i = 0 ; i < 3; i++) 
     { 
-        //e[i].get_user_detail();         e[i].get_product_detail(); 
+        //e[i].get_user_detail();         
+	e[i].get_product_detail(); 
     } 
  
     int ch;     
-	do 
+    do 
     { 
-        cout<<"1. Grocery"<<endl;         
+        	cout<<"1. Grocery"<<endl;         
 		cout<<"2. Stationary"<<endl;         
 		cout<<"3. Electronic"<<endl;         
 		cout<<"4. Exit"<<endl;         
@@ -281,22 +285,22 @@ int main()
  
         switch(ch) 
         {             
-			case 1: 
+	    case 1: 
             {                 
-				int choice;                 
-				do 
-                { 
-                    cout<<"1. Search by ID\n";                     
-					cout<<"2. Search by category\n";                     
-					cout<<"3. Modify\n";                     
-					cout<<"4. Display user detail:\n";                     
-					cout<<"5. Back\n";                    
-					 cout<<"Enter your choice: ";                     
-					 cin >> choice; 
+			int choice;                 
+			do 
+                	{ 
+                    		cout<<"1. Search by ID\n";                     
+				cout<<"2. Search by category\n";                     
+				cout<<"3. Modify\n";                     
+				cout<<"4. Display user detail:\n";                     
+				cout<<"5. Back\n";                    
+				 cout<<"Enter your choice: ";                     
+				 cin >> choice; 
  
-                    switch (choice) 
-                    { 
-                    case 1:                    
+                    		switch (choice) 
+                    		{ 
+                    			case 1:                    
 					{                         
 						int id;                         
 						cout<<"Enter id : ";                         
@@ -305,123 +309,123 @@ int main()
 						break;                     
 					}                     
 					case 2: 
-                    { 
-                        string category;                         
+                    			{ 
+                        			string category;                         
 						cout<<"Enter category: ";                         
 						cin>>category;                         
 						search_by_category(g, category, 5); 
-                        break;                     
+                       				break;                     
 					}                     
 					case 3:                     
 					{                         
 						int id; 
-                        cout<<"Enter product id: ";                        
+                        			cout<<"Enter product id: ";                        
 						cin >> id;                         
 						modify(g, id, 5);                         
 						break;                     
 					}                     
 					case 4: 
-                    { 
-                        g[0].display_user_detail(); 
-                    } 
-	 	 	    } 
-                } while (choice <= 4);                 
-				break; 
-            }             
-			case 2: 
-            {                 
-				int choice;                 
-				do 
-                { 
-                    cout<<"1. Search by ID\n";                     
-					cout<<"2. Search by category\n";                     
-					cout<<"3. Modify\n";                     
-					cout<<"4. Display user Details:\n"; 
+                    			{ 
+                        			g[0].display_user_detail(); 
+                    			} 
+	 	 	    	} 
+                	} while (choice <= 4);                 
+			break; 
+            	}             
+		case 2: 
+            	{                 
+			int choice;                 
+			do 
+                	{ 
+                    		cout<<"1. Search by ID\n";                     
+				cout<<"2. Search by category\n";                     
+				cout<<"3. Modify\n";                     
+				cout<<"4. Display user Details:\n"; 
 	 	 	    	cout<<"5. Back\n"; 
-                    cout<<"Enter your choice: ";                     
-					cin >> choice; 
+                    		cout<<"Enter your choice: ";                     
+				cin >> choice; 
  
-                    switch (choice) 
-                    {                     
-						case 1:                     
-						{                         
-							int id;                         
-							cout<<"Enter id : ";                         
-							cin>>id;                         
-							search_by_id(e, id, 5);                         
-							break;                     
-						}                     
-						case 2: 
-                    	{ 
-                        	string category;                         
-							cout<<"Enter category: ";                         
-							cin>>category; 
-                        	search_by_category(e, category, 5);                         
-							break;                     
-						}                     
-						case 3:                     
-						{                         
-							int id; 
-                        	cout<<"Enter product id: ";                         
-							cin >> id;                         
-							modify(e, id, 5);                         
-							break; 
-                    	}                     
-						case 4: 
-                    	{ 
-                        	e[0].display_user_detail(); 
-                    	} 
-                    } 
-                } while (choice <= 4); 
-				break; 
-            }             
-			case 3: 
-            {                 
-				int choice;                 
-				do 
-                { 
-                    cout<<"1. Search by ID\n";                     
-					cout<<"2. Search by category\n";                     
-					cout<<"3. Modify\n";                     
-					cout<<"4. Display User Details:\n"; 
+                    		switch (choice) 
+                    		{                     
+					case 1:                     
+					{                         
+						int id;                         
+						cout<<"Enter id : ";                         
+						cin>>id;                         
+						search_by_id(e, id, 5);                         
+						break;                     
+					}                     
+					case 2: 
+                    			{ 
+                        			string category;                         
+						cout<<"Enter category: ";                         
+						cin>>category; 
+                        			search_by_category(e, category, 5);                         
+						break;                     
+					}                     
+					case 3:                     
+					{                         
+						int id; 
+                        			cout<<"Enter product id: ";                         
+						cin >> id;                         
+						modify(e, id, 5);                         
+						break; 
+                    			}                     
+					case 4: 
+                    			{ 
+                        			e[0].display_user_detail(); 
+                    			} 
+                    		} 
+                	} while (choice <= 4); 
+			break; 
+            	}             
+		case 3: 
+           	{                 
+			int choice;                 
+			do 
+                	{ 
+                    		cout<<"1. Search by ID\n";                     
+				cout<<"2. Search by category\n";                     
+				cout<<"3. Modify\n";                     
+				cout<<"4. Display User Details:\n"; 
 	 	 	    	cout<<"5. Back\n"; 
-                    cout<<"Enter your choice: ";                     
-					cin >> choice; 
+                    		cout<<"Enter your choice: ";                     
+				cin >> choice; 
  
-                    switch (choice) 
-                    {                     
-						case 1:                     
-						{                         
-							int id;                         
-							cout<<"Enter id : ";                         
-							cin>>id;                         
-							search_by_id(s, id, 5);                         
-							break;                     
-						}                     
-						case 2: 
-                    	{ 
-                        	string category; 
-                        	cout<<"Enter category: ";                         
-							cin>>category;                         
-							search_by_category(s, category, 5);                         
-							break;                     
-						}                     
-						case 3:                     
-						{                         
-							int id; 
-                        	cout<<"Enter product id: ";                         
-							cin >> id;                         
-							modify(s, id, 5);                         
-							break;                     
-						}                      
-						case 4: 
-                    	{ 
-                        	s[0].display_user_detail(); 
-                    	} 
-                    } 
-                } while (choice <= 4);                 
-				break; 
-            } 
+                   		switch (choice) 
+                    		{                     
+					case 1:                     
+					{                         
+						int id;                         
+						cout<<"Enter id : ";                         
+						cin>>id;                         
+						search_by_id(s, id, 5);                         
+						break;                     
+					}                     
+					case 2: 
+                    			{ 
+                        			string category; 
+                        			cout<<"Enter category: ";                         
+						cin>>category;                         
+						search_by_category(s, category, 5);                         
+						break;                     
+					}                     
+					case 3:                     
+					{                         
+						int id; 
+                        			cout<<"Enter product id: ";                         
+						cin >> id;                         
+						modify(s, id, 5);                         
+						break;                     
+					}                      
+					case 4: 
+                    			{ 
+                        			s[0].display_user_detail(); 
+                    			} 
+                    		} 
+                	} while (choice <= 4);                 
+			break; 
+            	} 
         } 
     } while (ch < 4); 
      
