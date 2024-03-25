@@ -94,13 +94,13 @@ void search_by_id(Grocery G[], int id, int n)
 } 
 void search_by_category(Grocery G[], string category, int n) 
 { 
-for(int i=0;i<n;i++) 
-{ 
+	for(int i=0;i<n;i++) 
+	{ 
 	 	if(G[i].category==category) 
 	 	{ 
 	 	 	G[i].display_product_detail(); 
 	 	} 
-} 
+	} 
 } 
 void modify(Grocery G[], int id, int n) 
 { 
@@ -162,18 +162,19 @@ void search_by_id(Stationary S[], int id, int n)
 } 
 void search_by_category(Stationary S[], string category, int n) 
 { 
-for(int i=0;i<n;i++) 
-{ 
+	for(int i=0;i<n;i++) 
+	{ 
  
 	 	if(S[i].category==category) 
 	 	{ 
 	 	 	S[i].display_product_detail(); 
 	 	} 
-	 	} 
+	} 
 } 
 void modify(Stationary S[], int id, int n) 
 { 
-	for(int i=0;i<n;i++) {  	 	
+	for(int i=0;i<n;i++) 
+	{  	 	
 		if(S[i].pid==id) 
 	 	{ 
 	 	 	S[i].get_product_detail(); 
@@ -198,8 +199,10 @@ void Electronics::get_product_detail()
 	cin>>pid; 
 	cout<<"Enter product Name:"<<endl; 
 	cin>>pname; 
-11
-cout<<"Enter the category:"<<endl; cin>>category; cout<<"Enter price:"<<endl; cin>>price; 
+	cout<<"Enter the category:"<<endl; 
+	cin>>category; 
+	cout<<"Enter price:"<<endl; 
+	cin>>price; 
  	cout<<"Enter the quantity:"<<endl;  	
 	cin>>qty;  	
 	total_amount(); 
@@ -223,8 +226,8 @@ void search_by_id(Electronics E[], int id, int n)
 	 { 
 	  	if(E[i].pid==id) 
 	  	{ 
- 	  	E[i].display_product_detail();  	 	 	
-		break; 
+	 	  	E[i].display_product_detail();  	 	 	
+			break; 
 	 	} 
 	} 
 } 
@@ -257,19 +260,17 @@ int main()
  
     g[0].get_user_detail();     
     for(int i = 0 ; i < 3; i++) 
-    { 
-        //g[i].get_user_detail();         
+    {         
 	g[i].get_product_detail(); 
     } 
     s[0].get_user_detail();     
     for(int i = 0 ; i < 3; i++) 
-    { 
-        //s[i].get_user_detail();        
-	s[i].get_product_detail();     } 
+    {      
+	s[i].get_product_detail();     
+    } 
     e[0].get_user_detail();     
     for(int i = 0 ; i < 3; i++) 
-    { 
-        //e[i].get_user_detail();         
+    {          
 	e[i].get_product_detail(); 
     } 
  
@@ -295,8 +296,8 @@ int main()
 				cout<<"3. Modify\n";                     
 				cout<<"4. Display user detail:\n";                     
 				cout<<"5. Back\n";                    
-				 cout<<"Enter your choice: ";                     
-				 cin >> choice; 
+				cout<<"Enter your choice: ";                     
+				cin >> choice; 
  
                     		switch (choice) 
                     		{ 
